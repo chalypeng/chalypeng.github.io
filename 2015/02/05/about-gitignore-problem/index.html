@@ -100,7 +100,7 @@
 <meta property="og:url" content="https://toor.xyz/2015/02/05/about-gitignore-problem/index.html">
 <meta property="og:site_name" content="chalypeng&#39;s Blog">
 <meta property="og:description" content="利用.gitignore过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。问题  在.gitignore中添加FileSample文件，以过滤该文件，但是通过git status查看仍显示FileSample文件的更改状态。原因：.gitignore文件只对还没有加入版本管理的文件起作用，若之前已经这些文件纳入了版本库，就不起作用了解决办法： 需要在git库中删除该文件">
-<meta property="og:updated_time" content="2015-03-21T02:26:59.999Z">
+<meta property="og:updated_time" content="2017-06-29T08:02:00.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于gitignore文件过滤无效-不能过滤某些文件问题">
 <meta name="twitter:description" content="利用.gitignore过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。问题  在.gitignore中添加FileSample文件，以过滤该文件，但是通过git status查看仍显示FileSample文件的更改状态。原因：.gitignore文件只对还没有加入版本管理的文件起作用，若之前已经这些文件纳入了版本库，就不起作用了解决办法： 需要在git库中删除该文件">
@@ -365,8 +365,9 @@
         <h2 id="利用-gitignore过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。"><a href="#利用-gitignore过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。" class="headerlink" title="利用.gitignore过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。"></a>利用.gitignore过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。</h2><p><strong>问题</strong></p>
 <blockquote>
 <p>在.gitignore中添加FileSample文件，以过滤该文件，但是通过git status查看仍显示FileSample文件的更改状态。<br><strong>原因：</strong><br>.gitignore文件只对还没有加入版本管理的文件起作用，若之前已经这些文件纳入了版本库，就不起作用了<br><strong>解决办法：</strong></p>
-<h2 id="需要在git库中删除该文件，并更新。"><a href="#需要在git库中删除该文件，并更新。" class="headerlink" title="需要在git库中删除该文件，并更新。"></a>需要在git库中删除该文件，并更新。</h2></blockquote>
+<h2 id="需要在git库中删除该文件，并更新。"><a href="#需要在git库中删除该文件，并更新。" class="headerlink" title="需要在git库中删除该文件，并更新。"></a>需要在git库中删除该文件，并更新。</h2><a id="more"></a>
 <p>再次git status查看状态，FileSample文件不再显示更改状态，也就是不再追踪变化，gitignore起作用了。</p>
+</blockquote>
 
       
     </div>
