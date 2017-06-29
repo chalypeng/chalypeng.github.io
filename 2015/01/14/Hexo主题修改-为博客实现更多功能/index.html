@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo主题修改-为博客实现更多功能 | chalypeng&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="主要介绍快速导航、返回顶部、Swiftype 搜索等功能的实现，代码实现细节直戳 GitHub">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo主题修改-为博客实现更多功能">
+<meta property="og:url" content="https://toor.xyz/2015/01/14/Hexo主题修改-为博客实现更多功能/index.html">
+<meta property="og:site_name" content="chalypeng&#39;s Blog">
+<meta property="og:description" content="主要介绍快速导航、返回顶部、Swiftype 搜索等功能的实现，代码实现细节直戳 GitHub">
+<meta property="og:updated_time" content="2015-02-04T02:00:03.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo主题修改-为博客实现更多功能">
+<meta name="twitter:description" content="主要介绍快速导航、返回顶部、Swiftype 搜索等功能的实现，代码实现细节直戳 GitHub">
+  
+    <link rel="alternate" href="/atom.xml" title="chalypeng&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">chalypeng&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://toor.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Hexo主题修改-为博客实现更多功能" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/14/Hexo主题修改-为博客实现更多功能/" class="article-date">
+  <time datetime="2015-01-14T08:59:05.000Z" itemprop="datePublished">2015-01-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo主题修改-为博客实现更多功能
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>主要介绍快速导航、返回顶部、Swiftype 搜索等功能的实现，代码实现细节直戳 <a href="https://github.com/DaiXiang/hexo-theme-BsLight/" target="_blank" rel="external">GitHub</a></p>
+<a id="more"></a>
+<h2 id="快速导航"><a href="#快速导航" class="headerlink" title="快速导航"></a>快速导航</h2><p>Hexo 已经内置支持快速导航（即文章目录），只是有些主题没有提供支持。</p>
+<h3 id="文章内容插入快速导航"><a href="#文章内容插入快速导航" class="headerlink" title="文章内容插入快速导航"></a>文章内容插入快速导航</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// ..\layout\_partial\article.ejs</div><div class="line">// 各主题结构可能存在出入</div><div class="line">&lt;article class=&quot;&lt;%= item.layout %&gt;&quot;&gt;</div><div class="line">  // ...</div><div class="line">  &lt;div class=&quot;entry&quot;&gt;</div><div class="line">    &lt;% if (item.excerpt &amp;&amp; index)&#123; %&gt;</div><div class="line">      &lt;%- item.excerpt %&gt;</div><div class="line">    &lt;% &#125; else &#123; %&gt;</div><div class="line">      &lt;% if (!index)&#123; %&gt;</div><div class="line">        // 插入快速导航</div><div class="line">        &lt;%- partial(&apos;toc&apos;) %&gt;</div><div class="line">      &lt;% &#125; %&gt;</div><div class="line">      &lt;%- item.content %&gt;</div><div class="line">    &lt;% &#125; %&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  // ...</div><div class="line">&lt;/article&gt;</div><div class="line"></div><div class="line">&lt;% if(!index &amp;&amp; item.toc)&#123; %&gt;</div><div class="line">  // 插入快速导航 action js</div><div class="line">  &lt;%- partial(&apos;toc_action&apos;) %&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure>
+<h3 id="快速导航主体"><a href="#快速导航主体" class="headerlink" title="快速导航主体"></a>快速导航主体</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// ..\layout\_partial\extra\toc.ejs</div><div class="line">&lt;% if(item.toc &amp;&amp; item.toc != false)&#123; %&gt;</div><div class="line">  &lt;div id=&quot;toc&quot; class=&quot;toc-article&quot;&gt;</div><div class="line">    // 多语言支持</div><div class="line">    &lt;strong class=&quot;toc-title&quot;&gt;&lt;%= __(&apos;navigation&apos;) %&gt;&lt;/strong&gt;</div><div class="line">    &lt;%- toc(item.content) %&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure>
+<h3 id="CSS-样式"><a href="#CSS-样式" class="headerlink" title="CSS 样式"></a>CSS 样式</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// ..\source\css\_partial\article.styl</div><div class="line">.toc-article</div><div class="line">  float right</div><div class="line"></div><div class="line">#toc</div><div class="line">  background #eee</div><div class="line">  margin 0 0 .5em 1.5em</div><div class="line">  padding 1em</div><div class="line">  border 2px solid color-link</div><div class="line">  line-height 1em</div><div class="line">  font-size .8em</div><div class="line">  strong</div><div class="line">    padding .3em 0</div><div class="line">  ol</div><div class="line">    margin-left 0</div><div class="line">  .toc</div><div class="line">    padding 0</div><div class="line">    li</div><div class="line">      list-style-type none</div><div class="line">  .toc-child</div><div class="line">    padding-left 1.5em</div></pre></td></tr></table></figure>
+<blockquote>
+<p>以上就基本实现了快速导航，有些细节需要根据自身主题进行修改调试。下面就 toc action js 介绍说明一些增强效果。</p>
+</blockquote>
+<h3 id="增强效果"><a href="#增强效果" class="headerlink" title="增强效果"></a>增强效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line">// ..\layout\_partial\extra\toc_action.ejs</div><div class="line">// 底部添加快速导航开关图标（移动设备上可关闭，不影响阅读）</div><div class="line">&lt;div id=&quot;menu-nav&quot; class=&quot;footer-btn&quot;&gt;</div><div class="line">  &lt;a title=&quot;&lt;%= __(&apos;quick_nav&apos;) %&gt;&quot;&gt;&lt;img src=&quot;/img/list.png&quot;/&gt;&lt;/a&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">  $(function()&#123;</div><div class="line">    var toc = $(&apos;#toc&apos;);</div><div class="line">    var nav = $(&apos;#menu-nav&apos;);</div><div class="line">    var toccopy;</div><div class="line">    var status = true;</div><div class="line">    if ($(window).width() &lt;= 583)</div><div class="line">      status = false;</div><div class="line">    var first = true;</div><div class="line">    var position = toc.position();</div><div class="line">    var wid = toc.width();</div><div class="line">    $(window).scroll(onScroll);</div><div class="line">    $(nav).click(opennav);</div><div class="line"></div><div class="line">    function tocout() &#123;</div><div class="line">      if (first &amp;&amp; status) &#123;</div><div class="line">        // 复制 toc 副本，将源 toc 浮起，toccopy 占位使得源 toc 浮起后不影响文档流</div><div class="line">        toccopy = $(toc).clone();</div><div class="line">        $(toccopy).insertAfter(toc);</div><div class="line">        toc.css(&apos;float&apos;,&apos;&apos;);</div><div class="line">        toc.css(&apos;position&apos;,&apos;fixed&apos;);</div><div class="line">        onResize();</div><div class="line">        toc.css(&apos;z-index&apos;,&apos;99&apos;);</div><div class="line">        toc.css(&apos;width&apos;,wid);</div><div class="line">        $(window).resize(onResize);</div><div class="line">        first = false;</div><div class="line">        // toccopy 占位但隐藏（仍占据文档流）</div><div class="line">        toccopy.css(&apos;visibility&apos;, &apos;hidden&apos;);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 当 toc 超出窗口范围时，浮起固定位置</div><div class="line">    function onScroll() &#123;</div><div class="line">      var top = $(window).scrollTop();</div><div class="line">      if(top &gt;= position.top + 30)&#123;</div><div class="line">        tocout();</div><div class="line">        $(nav).stop().fadeTo(300, 1); // fade back in</div><div class="line">        $(nav).animate(&#123;bottom: &quot;25px&quot;&#125;, &#123; queue: false, duration: 10 &#125;);</div><div class="line">      &#125;else&#123;</div><div class="line">        hidNav();</div><div class="line">        $(window).off(&quot;resize&quot;, onResize);</div><div class="line">        $(nav).stop().fadeTo(300, 0); // fade out</div><div class="line">        $(nav).animate(&#123;bottom: &quot;-200px&quot;&#125;, &#123; queue: false, duration: 10 &#125;);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 响应式支持</div><div class="line">    function onResize() &#123;</div><div class="line">      var width = $(window).width();</div><div class="line">      var left = $(&apos;#sidebar&apos;).position().left;</div><div class="line">      if (width &gt; 883)&#123;</div><div class="line">        toc.css(&apos;top&apos;, &apos;88px&apos;);</div><div class="line">        toc.css(&apos;left&apos;, left - 18);</div><div class="line">      &#125; else&#123;</div><div class="line">        var top = $(&apos;#nav-top&apos;).innerHeight();</div><div class="line">        toc.css(&apos;top&apos;, top);</div><div class="line">        var fix = $(&apos;#main-col&apos;).width() - toc.width() - 35;</div><div class="line">        toc.css(&apos;left&apos;, left + fix);</div><div class="line">        if($(window).scrollTop() &gt;= position.top + 30)&#123;</div><div class="line">          $(nav).stop().fadeTo(300, 1); // fade back in</div><div class="line">          $(nav).animate(&#123;bottom: &quot;25px&quot;&#125;, &#123; queue: false, duration: 10 &#125;);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function hidNav() &#123;</div><div class="line">      toc.css(&apos;position&apos;,&apos;&apos;);</div><div class="line">      toc.css(&apos;float&apos;,&apos;right&apos;);</div><div class="line">      $(toccopy).remove();</div><div class="line">      first = true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function opennav() &#123;</div><div class="line">      if (status) &#123;</div><div class="line">        status = false;</div><div class="line">        hidNav();</div><div class="line">      &#125; else &#123;</div><div class="line">        status = true;</div><div class="line">        tocout();</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="返回顶部"><a href="#返回顶部" class="headerlink" title="返回顶部"></a>返回顶部</h2><h3 id="主体-Action"><a href="#主体-Action" class="headerlink" title="主体 Action"></a>主体 Action</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">// ..\layout\_partial\extra\to_top.ejs</div><div class="line">&lt;div id=&quot;totop&quot; class=&quot;footer-btn&quot;&gt;</div><div class="line">  &lt;a title=&quot;&lt;%= __(&apos;return_top&apos;) %&gt;&quot;&gt;&lt;img src=&quot;/img/scrollup.png&quot;/&gt;&lt;/a&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">  $(function()&#123;</div><div class="line">    // When to show the scroll link</div><div class="line">    // higher number = scroll link appears further down the page</div><div class="line">    var upperLimit = 800;</div><div class="line"></div><div class="line">    // Our scroll link element</div><div class="line">    var scrollElem = $(&apos;#totop&apos;);</div><div class="line"></div><div class="line">    // Scroll to top speed</div><div class="line">    var scrollSpeed = 500;</div><div class="line"></div><div class="line">    // Show and hide the scroll to top link based on scroll position</div><div class="line">    scrollElem.hide();</div><div class="line">    $(window).scroll(function () &#123;</div><div class="line">      var scrollTop = $(document).scrollTop();</div><div class="line">      if ( scrollTop &gt; upperLimit ) &#123;</div><div class="line">        $(scrollElem).stop().fadeTo(300, 1); // fade back in</div><div class="line">        $(scrollElem).animate(&#123;bottom: &quot;50px&quot;&#125;, &#123; queue: false, duration: 10 &#125;);</div><div class="line">      &#125; else &#123;</div><div class="line">        $(scrollElem).stop().fadeTo(300, 0); // fade out</div><div class="line">        $(scrollElem).animate(&#123;bottom: &quot;-200px&quot;&#125;, &#123; queue: false, duration: 10 &#125;);</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    // Scroll to top animation on click</div><div class="line">    $(scrollElem).click(function()&#123;</div><div class="line">      $(&apos;html, body&apos;).animate(&#123;scrollTop:0&#125;, scrollSpeed);</div><div class="line">      $(scrollElem).animate(&#123;bottom: &quot;-200px&quot;&#125;, &#123; queue: false, duration: 10 &#125;);</div><div class="line">      return false;</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="Swiftype-搜索"><a href="#Swiftype-搜索" class="headerlink" title="Swiftype 搜索"></a>Swiftype 搜索</h2><p><a href="https://swiftype.com/" target="_blank" rel="external">Swiftype</a> 是一个很好用的站内搜索服务，使用它可以很大程度地改善目前静态博客的搜索体验。</p>
+<h3 id="获取安装代码"><a href="#获取安装代码" class="headerlink" title="获取安装代码"></a>获取安装代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// ..\layout\_partial\extra\swiftype_search.ejs</div><div class="line">&lt;% if (theme.swiftype_search.enable)&#123; %&gt;</div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    (function(w,d,t,u,n,s,e)&#123;w[&apos;SwiftypeObject&apos;]=n;w[n]=w[n]||function()&#123;</div><div class="line">      (w[n].q=w[n].q||[]).push(arguments);&#125;;s=d.createElement(t);</div><div class="line">      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);</div><div class="line">    &#125;)(window,document,&apos;script&apos;,&apos;//s.swiftypecdn.com/install/v1/st.js&apos;,&apos;_st&apos;);</div><div class="line"></div><div class="line">    _st(&apos;install&apos;,&apos;&lt;%- theme.swiftype_search.install_code %&gt;&apos;);</div><div class="line">  &lt;/script&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure>
+<h3 id="修改原先搜索框架"><a href="#修改原先搜索框架" class="headerlink" title="修改原先搜索框架"></a>修改原先搜索框架</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// ..\layout\_widget\search.ejs</div><div class="line">&lt;div class=&quot;search&quot;&gt;</div><div class="line">  &lt;% if (theme.swiftype_search.enable) &#123; %&gt;</div><div class="line">    &lt;form&gt;</div><div class="line">      &lt;input id=&quot;&lt;%- theme.swiftype_search.search_input_selector %&gt;&quot; type=&quot;search&quot; placeholder=&quot;&lt;%= __(&apos;search&apos;) %&gt;&quot;&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line">    &lt;div id=&quot;st-results-container&quot;&gt;&lt;/div&gt;</div><div class="line">  &lt;% &#125; else &#123; %&gt;</div><div class="line">    &lt;form action=&quot;//google.com/search&quot; method=&quot;get&quot; accept-charset=&quot;utf-8&quot;&gt;</div><div class="line">      &lt;input type=&quot;search&quot; name=&quot;q&quot; results=&quot;0&quot; placeholder=&quot;&lt;%= __(&apos;search&apos;) %&gt;&quot;&gt;</div><div class="line">      &lt;input type=&quot;hidden&quot; name=&quot;q&quot; value=&quot;site:&lt;%- config.url.replace(/^https?:\/\//, &apos;&apos;) %&gt;&quot;&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line">  &lt;% &#125; %&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="选择插入位置"><a href="#选择插入位置" class="headerlink" title="选择插入位置"></a>选择插入位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// ..\layout\_partial\sidebar.ejs</div><div class="line">// 添加如下代码，插入</div><div class="line">&lt;%- partial(&apos;extra/swiftype_search&apos;) %&gt;</div></pre></td></tr></table></figure>
+<h3 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// ..\_config.yml</div><div class="line">swiftype_search:</div><div class="line">  enable: true</div><div class="line">  install_code: *****************</div><div class="line">  search_input_selector: st-search-input</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://toor.xyz/2015/01/14/Hexo主题修改-为博客实现更多功能/" data-id="cj4i383yd0001n8slls1rdgih" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/01/17/python-format-string/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python字符串格式化
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorier</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Editer/">Editer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SublimeText/">SublimeText</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Arkiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Siste innlegg</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/29/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/05/about-gitignore-problem/">关于gitignore文件过滤无效-不能过滤某些文件问题</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/30/python-how-to-sorting/">python排序高级</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/29/diff-xrange-range/">Python中xrange和range区别</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/28/ORA-00904-标识符无效解决办法/">ORA-00904-标识符无效解决办法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 chalypeng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

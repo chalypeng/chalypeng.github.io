@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python排序高级 | chalypeng&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Python list内置sort()方法用来排序，也可以用python内置的全局sorted()方法来对可迭代的序列排序生成新的序列。 1）排序基础简单的升序排序是非常容易的。只需要调用sorted()方法。它返回一个新的list，新的list的元素基于小于运算符(lt)来排序。12&amp;gt;&amp;gt;&amp;gt;sorted([5, 2, 3, 1, 4])[1, 2, 3, 4, 5] 你也可以使用">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python排序高级">
+<meta property="og:url" content="https://toor.xyz/2015/01/30/python-how-to-sorting/index.html">
+<meta property="og:site_name" content="chalypeng&#39;s Blog">
+<meta property="og:description" content="Python list内置sort()方法用来排序，也可以用python内置的全局sorted()方法来对可迭代的序列排序生成新的序列。 1）排序基础简单的升序排序是非常容易的。只需要调用sorted()方法。它返回一个新的list，新的list的元素基于小于运算符(lt)来排序。12&amp;gt;&amp;gt;&amp;gt;sorted([5, 2, 3, 1, 4])[1, 2, 3, 4, 5] 你也可以使用">
+<meta property="og:updated_time" content="2015-01-30T02:31:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python排序高级">
+<meta name="twitter:description" content="Python list内置sort()方法用来排序，也可以用python内置的全局sorted()方法来对可迭代的序列排序生成新的序列。 1）排序基础简单的升序排序是非常容易的。只需要调用sorted()方法。它返回一个新的list，新的list的元素基于小于运算符(lt)来排序。12&amp;gt;&amp;gt;&amp;gt;sorted([5, 2, 3, 1, 4])[1, 2, 3, 4, 5] 你也可以使用">
+  
+    <link rel="alternate" href="/atom.xml" title="chalypeng&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">chalypeng&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://toor.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-python-how-to-sorting" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/30/python-how-to-sorting/" class="article-date">
+  <time datetime="2015-01-30T02:06:37.000Z" itemprop="datePublished">2015-01-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python排序高级
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Python list内置sort()方法用来排序，也可以用python内置的全局sorted()方法来对可迭代的序列排序生成新的序列。</strong></p>
+<p>1）排序基础<br>简单的升序排序是非常容易的。只需要调用sorted()方法。它返回一个新的list，新的list的元素基于小于运算符(<strong>lt</strong>)来排序。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;sorted([<span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>])</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div></pre></td></tr></table></figure></p>
+<p>你也可以使用list.sort()方法来排序，此时list本身将被修改。通常此方法不如sorted()方便，但是如果你不需要保留原来的list，此方法将更有效。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a.sort()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div></pre></td></tr></table></figure></p>
+<p>另一个不同就是list.sort()方法仅被定义在list中，相反地sorted()方法对所有的可迭代序列都有效。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(&#123;<span class="number">1</span>: <span class="string">'D'</span>, <span class="number">2</span>: <span class="string">'B'</span>, <span class="number">3</span>: <span class="string">'B'</span>, <span class="number">4</span>: <span class="string">'E'</span>, <span class="number">5</span>: <span class="string">'A'</span>&#125;)</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div></pre></td></tr></table></figure></p>
+<p>2）key参数/函数<br><a id="more"></a><br>从python2.4开始，list.sort()和sorted()函数增加了key参数来指定一个函数，此函数将在每个元素比较前被调用。 例如通过key指定的函数来忽略字符串的大小写：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(<span class="string">"This is a test string from Andrew"</span>.split(), key=str.lower)</div><div class="line">[<span class="string">'a'</span>, <span class="string">'Andrew'</span>, <span class="string">'from'</span>, <span class="string">'is'</span>, <span class="string">'string'</span>, <span class="string">'test'</span>, <span class="string">'This'</span>]</div></pre></td></tr></table></figure></p>
+<p>key参数的值为一个函数，此函数只有一个参数且返回一个值用来进行比较。这个技术是快速的因为key指定的函数将准确地对每个元素调用。</p>
+<p>更广泛的使用情况是用复杂对象的某些值来对复杂对象的序列排序，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>student_tuples = [</div><div class="line">        (<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>),</div><div class="line">        (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>),</div><div class="line">        (<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>),</div><div class="line">]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(student_tuples, key=<span class="keyword">lambda</span> student: student[<span class="number">2</span>])   <span class="comment"># sort by age</span></div><div class="line">[(<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>), (<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>)]</div></pre></td></tr></table></figure>
+<p>同样的技术对拥有命名属性的复杂对象也适用，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Student</span>:</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, grade, age)</span>:</span></div><div class="line">                self.name = name</div><div class="line">                self.grade = grade</div><div class="line">                self.age = age</div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></div><div class="line">                <span class="keyword">return</span> repr((self.name, self.grade, self.age))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>student_objects = [</div><div class="line">        Student(<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>),</div><div class="line">        Student(<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>),</div><div class="line">        Student(<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>),</div><div class="line">]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(student_objects, key=<span class="keyword">lambda</span> student: student.age)   <span class="comment"># sort by age</span></div><div class="line">[(<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>), (<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>)]</div></pre></td></tr></table></figure>
+<p>3）Operator 模块函数</p>
+<p>上面的key参数的使用非常广泛，因此python提供了一些方便的函数来使得访问方法更加容易和快速。operator模块有itemgetter，attrgetter，从2.6开始还增加了methodcaller方法。使用这些方法，上面的操作将变得更加简洁和快速：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> operator <span class="keyword">import</span> itemgetter, attrgetter</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(student_tuples, key=itemgetter(<span class="number">2</span>))</div><div class="line">[(<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>), (<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>)]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(student_objects, key=attrgetter(<span class="string">'age'</span>))</div><div class="line">[(<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>), (<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>)]</div></pre></td></tr></table></figure></p>
+<p>operator模块还允许多级的排序，例如，先以grade，然后再以age来排序：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(student_tuples, key=itemgetter(<span class="number">1</span>,<span class="number">2</span>))</div><div class="line">[(<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>), (<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>)]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(student_objects, key=attrgetter(<span class="string">'grade'</span>, <span class="string">'age'</span>))</div><div class="line">[(<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>), (<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>)]</div></pre></td></tr></table></figure></p>
+<p>4）升序和降序</p>
+<p>list.sort()和sorted()都接受一个参数reverse（True or False）来表示升序或降序排序。例如对上面的student降序排序如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(student_tuples, key=itemgetter(<span class="number">2</span>), reverse=<span class="keyword">True</span>)</div><div class="line">[(<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>), (<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>)]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(student_objects, key=attrgetter(<span class="string">'age'</span>), reverse=<span class="keyword">True</span>)</div><div class="line">[(<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>), (<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>)]</div></pre></td></tr></table></figure></p>
+<p>5）排序的稳定性和复杂排序</p>
+<p>从python2.2开始，排序被保证为稳定的。意思是说多个元素如果有相同的key，则排序前后他们的先后顺序不变。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>data = [(<span class="string">'red'</span>, <span class="number">1</span>), (<span class="string">'blue'</span>, <span class="number">1</span>), (<span class="string">'red'</span>, <span class="number">2</span>), (<span class="string">'blue'</span>, <span class="number">2</span>)]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(data, key=itemgetter(<span class="number">0</span>))</div><div class="line">[(<span class="string">'blue'</span>, <span class="number">1</span>), (<span class="string">'blue'</span>, <span class="number">2</span>), (<span class="string">'red'</span>, <span class="number">1</span>), (<span class="string">'red'</span>, <span class="number">2</span>)]</div></pre></td></tr></table></figure></p>
+<p>注意在排序后’blue’的顺序被保持了，即’blue’, 1在’blue’, 2的前面。</p>
+<p>更复杂地你可以构建多个步骤来进行更复杂的排序，例如对student数据先以grade降序排列，然后再以age升序排列。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = sorted(student_objects, key=attrgetter(<span class="string">'age'</span>))     <span class="comment"># sort on secondary key</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(s, key=attrgetter(<span class="string">'grade'</span>), reverse=<span class="keyword">True</span>)       <span class="comment"># now sort on primary key, descending</span></div><div class="line">[(<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>), (<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>)]</div></pre></td></tr></table></figure></p>
+<p>6）最老土的排序方法-DSU<br>我们称其为DSU（Decorate-Sort-Undecorate）,原因为排序的过程需要下列三步：<br>第一：对原始的list进行装饰，使得新list的值可以用来控制排序；<br>第二：对装饰后的list排序；<br>第三：将装饰删除，将排序后的装饰list重新构建为原来类型的list；</p>
+<p>例如，使用DSU方法来对student数据根据grade排序：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>decorated = [(student.grade, i, student) <span class="keyword">for</span> i, student <span class="keyword">in</span> enumerate(student_objects)]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>decorated.sort()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>[student <span class="keyword">for</span> grade, i, student <span class="keyword">in</span> decorated]               <span class="comment"># undecorate</span></div><div class="line">[(<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>), (<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>)]</div></pre></td></tr></table></figure></p>
+<p>上面的比较能够工作，原因是tuples是可以用来比较，tuples间的比较首先比较tuples的第一个元素，如果第一个相同再比较第二个元素，以此类推。</p>
+<p>并不是所有的情况下都需要在以上的tuples中包含索引，但是包含索引可以有以下好处：<br>第一：排序是稳定的，如果两个元素有相同的key，则他们的原始先后顺序保持不变；<br>第二：原始的元素不必用来做比较，因为tuples的第一和第二元素用来比较已经是足够了。</p>
+<p>此方法被RandalL.在perl中广泛推广后，他的另一个名字为也被称为Schwartzian transform。</p>
+<p>对大的list或list的元素计算起来太过复杂的情况下，在python2.4前，DSU很可能是最快的排序方法。但是在2.4之后，上面解释的key函数提供了类似的功能。</p>
+<p>7）其他语言普遍使用的排序方法-cmp函数<br>在python2.4前，sorted()和list.sort()函数没有提供key参数，但是提供了cmp参数来让用户指定比较函数。此方法在其他语言中也普遍存在。</p>
+<p>在python3.0中，cmp参数被彻底的移除了，从而简化和统一语言，减少了高级比较和<strong>cmp</strong>方法的冲突。</p>
+<p>在python2.x中cmp参数指定的函数用来进行元素间的比较。此函数需要2个参数，然后返回负数表示小于，0表示等于，正数表示大于。例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">numeric_compare</span><span class="params">(x, y)</span>:</span></div><div class="line">        <span class="keyword">return</span> x - y</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted([<span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>], cmp=numeric_compare)</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div></pre></td></tr></table></figure></p>
+<p>或者你可以反序排序：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">reverse_numeric</span><span class="params">(x, y)</span>:</span></div><div class="line">        <span class="keyword">return</span> y - x</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted([<span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>], cmp=reverse_numeric)</div><div class="line">[<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</div></pre></td></tr></table></figure></p>
+<p>当我们将现有的2.x的代码移植到3.x时，需要将cmp函数转化为key函数，以下的wrapper很有帮助：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cmp_to_key</span><span class="params">(mycmp)</span>:</span></div><div class="line">    <span class="string">'Convert a cmp= function into a key= function'</span></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">K</span><span class="params">(object)</span>:</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, obj, *args)</span>:</span></div><div class="line">            self.obj = obj</div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__lt__</span><span class="params">(self, other)</span>:</span></div><div class="line">            <span class="keyword">return</span> mycmp(self.obj, other.obj) &lt; <span class="number">0</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__gt__</span><span class="params">(self, other)</span>:</span></div><div class="line">            <span class="keyword">return</span> mycmp(self.obj, other.obj) &gt; <span class="number">0</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__eq__</span><span class="params">(self, other)</span>:</span></div><div class="line">            <span class="keyword">return</span> mycmp(self.obj, other.obj) == <span class="number">0</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__le__</span><span class="params">(self, other)</span>:</span></div><div class="line">            <span class="keyword">return</span> mycmp(self.obj, other.obj) &lt;= <span class="number">0</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__ge__</span><span class="params">(self, other)</span>:</span></div><div class="line">            <span class="keyword">return</span> mycmp(self.obj, other.obj) &gt;= <span class="number">0</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__ne__</span><span class="params">(self, other)</span>:</span></div><div class="line">            <span class="keyword">return</span> mycmp(self.obj, other.obj) != <span class="number">0</span></div><div class="line">    <span class="keyword">return</span> K</div></pre></td></tr></table></figure>
+<p>当需要将cmp转化为key时，只需要：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted([<span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>], key=cmp_to_key(reverse_numeric))</div><div class="line">[<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</div></pre></td></tr></table></figure></p>
+<p>从python2.7，cmp_to_key()函数被增加到了functools模块中。</p>
+<p>8)其他注意事项</p>
+<ul>
+<li><p>对需要进行区域相关的排序时，可以使用locale.strxfrm()作为key函数，或者使用local.strcoll()作为cmp函数。</p>
+</li>
+<li><p>reverse参数任然保持了排序的稳定性，有趣的时，同样的效果可以使用reversed()函数两次来实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>data = [(<span class="string">'red'</span>, <span class="number">1</span>), (<span class="string">'blue'</span>, <span class="number">1</span>), (<span class="string">'red'</span>, <span class="number">2</span>), (<span class="string">'blue'</span>, <span class="number">2</span>)]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">assert</span> sorted(data, reverse=<span class="keyword">True</span>) == list(reversed(sorted(reversed(data))))</div></pre></td></tr></table></figure>
+</li>
+<li><p>其实排序在内部是调用元素的<strong>cmp</strong>来进行的，所以我们可以为元素类型增加<strong>cmp</strong>方法使得元素可比较，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>Student.__lt__ = <span class="keyword">lambda</span> self, other: self.age &lt; other.age</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(student_objects)</div><div class="line">[(<span class="string">'dave'</span>, <span class="string">'B'</span>, <span class="number">10</span>), (<span class="string">'jane'</span>, <span class="string">'B'</span>, <span class="number">12</span>), (<span class="string">'john'</span>, <span class="string">'A'</span>, <span class="number">15</span>)]</div></pre></td></tr></table></figure>
+</li>
+<li><p>key函数不仅可以访问需要排序元素的内部数据，还可以访问外部的资源，例如，如果学生的成绩是存储在dictionary中的，则可以使用此dictionary来对学生名字的list排序，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>students = [<span class="string">'dave'</span>, <span class="string">'john'</span>, <span class="string">'jane'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>newgrades = &#123;<span class="string">'john'</span>: <span class="string">'F'</span>, <span class="string">'jane'</span>:<span class="string">'A'</span>, <span class="string">'dave'</span>: <span class="string">'C'</span>&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(students, key=newgrades.__getitem__)</div><div class="line">[<span class="string">'jane'</span>, <span class="string">'dave'</span>, <span class="string">'john'</span>]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>*当你需要在处理数据的同时进行排序的话，sort(),sorted()或bisect.insort()不是最好的方法。在这种情况下，可以使用heap，red-black tree或treap。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://toor.xyz/2015/01/30/python-how-to-sorting/" data-id="cj4i383z4000sn8sl6ofop00m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/02/05/about-gitignore-problem/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于gitignore文件过滤无效-不能过滤某些文件问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/01/29/diff-xrange-range/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python中xrange和range区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorier</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Editer/">Editer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SublimeText/">SublimeText</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Arkiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Siste innlegg</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/29/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/05/about-gitignore-problem/">关于gitignore文件过滤无效-不能过滤某些文件问题</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/30/python-how-to-sorting/">python排序高级</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/29/diff-xrange-range/">Python中xrange和range区别</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/28/ORA-00904-标识符无效解决办法/">ORA-00904-标识符无效解决办法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 chalypeng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

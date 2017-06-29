@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Python字符串格式化 | chalypeng&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Python格式操作符格式操作符为真实值预留位置，并控制显示的格式。格式符可以包含有一个类型码，用以控制显示类型，常见类型如下: 1234567891011121314151617181920212223242526272829%s    字符串 (采用str()的显示)%r    字符串 (采用repr()的显示)%c    单个字符%b    二进制整数%d    十进制整数%i    十进制">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python字符串格式化">
+<meta property="og:url" content="https://toor.xyz/2015/01/17/python-format-string/index.html">
+<meta property="og:site_name" content="chalypeng&#39;s Blog">
+<meta property="og:description" content="Python格式操作符格式操作符为真实值预留位置，并控制显示的格式。格式符可以包含有一个类型码，用以控制显示类型，常见类型如下: 1234567891011121314151617181920212223242526272829%s    字符串 (采用str()的显示)%r    字符串 (采用repr()的显示)%c    单个字符%b    二进制整数%d    十进制整数%i    十进制">
+<meta property="og:updated_time" content="2015-01-29T06:56:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python字符串格式化">
+<meta name="twitter:description" content="Python格式操作符格式操作符为真实值预留位置，并控制显示的格式。格式符可以包含有一个类型码，用以控制显示类型，常见类型如下: 1234567891011121314151617181920212223242526272829%s    字符串 (采用str()的显示)%r    字符串 (采用repr()的显示)%c    单个字符%b    二进制整数%d    十进制整数%i    十进制">
+  
+    <link rel="alternate" href="/atom.xml" title="chalypeng&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">chalypeng&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://toor.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-python-format-string" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/17/python-format-string/" class="article-date">
+  <time datetime="2015-01-17T06:18:40.000Z" itemprop="datePublished">2015-01-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python字符串格式化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Python格式操作符"><a href="#Python格式操作符" class="headerlink" title="Python格式操作符"></a>Python格式操作符</h2><p>格式操作符为真实值预留位置，并控制显示的格式。格式符可以包含有一个<code>类型码</code>，用以控制显示类型，常见类型如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">%s    字符串 (采用str()的显示)</div><div class="line"></div><div class="line">%r    字符串 (采用repr()的显示)</div><div class="line"></div><div class="line">%c    单个字符</div><div class="line"></div><div class="line">%b    二进制整数</div><div class="line"></div><div class="line">%d    十进制整数</div><div class="line"></div><div class="line">%i    十进制整数</div><div class="line"></div><div class="line">%o    八进制整数</div><div class="line"></div><div class="line">%x    十六进制整数</div><div class="line"></div><div class="line">%e    指数 (基底写为e)</div><div class="line"></div><div class="line">%E    指数 (基底写为E)</div><div class="line"></div><div class="line">%f    浮点数</div><div class="line"></div><div class="line">%F    浮点数，与上相同</div><div class="line"></div><div class="line">%g    指数(e)或浮点数 (根据显示长度)</div><div class="line"></div><div class="line">%G    指数(E)或浮点数 (根据显示长度)</div><div class="line"></div><div class="line">%%    字符&quot;%&quot;</div></pre></td></tr></table></figure>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p><code>%[(name)][flags][width].[precision]typecode</code></p>
+<p>(name)：为名称</p>
+<p>flags：可以有+,-,’ ‘或0。+表示右对齐。-表示左对齐。’ ‘为一个空格，表示在正数的左侧填充一个空格，从而与负数对齐。0表示使用0填充。</p>
+<p>width：表示显示宽度</p>
+<p>precision：表示小数点后精度<br><a id="more"></a><br>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">"%+10x"</span> % <span class="number">10</span>)</div><div class="line">print(<span class="string">"%04d"</span> % <span class="number">5</span>)</div><div class="line">print(<span class="string">"%6.3f"</span> % <span class="number">2.3</span>)</div></pre></td></tr></table></figure>
+<p>上面的width, precision为两个整数。我们可以利用*，来动态代入这两个量。比如：</p>
+<p><code>print(&quot;%.*f&quot; % (4, 1.2))</code></p>
+<p>Python实际上用4来替换*。所以实际的模板为”%.4f”。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://toor.xyz/2015/01/17/python-format-string/" data-id="cj4i383yz000pn8slotykgkqz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/01/23/SublimeText-Shortcuts-Cheatsheet/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SublimeText快捷键列表
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/01/14/Hexo主题修改-为博客实现更多功能/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexo主题修改-为博客实现更多功能</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorier</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Editer/">Editer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SublimeText/">SublimeText</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Arkiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Siste innlegg</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/29/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/05/about-gitignore-problem/">关于gitignore文件过滤无效-不能过滤某些文件问题</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/30/python-how-to-sorting/">python排序高级</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/29/diff-xrange-range/">Python中xrange和range区别</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/28/ORA-00904-标识符无效解决办法/">ORA-00904-标识符无效解决办法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 chalypeng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
