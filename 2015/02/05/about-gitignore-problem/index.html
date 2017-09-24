@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
 
 
@@ -36,36 +37,11 @@
 
 
 
+
   
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Noto+Sans|Lato|Roboto:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -74,7 +50,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Git," />
@@ -86,7 +62,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -98,7 +74,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于gitignore文件过滤无效-不能过滤某些文件问题">
 <meta property="og:url" content="https://toor.xyz/2015/02/05/about-gitignore-problem/index.html">
-<meta property="og:site_name" content="chalypeng&#39;s Blog">
+<meta property="og:site_name" content="Charlie&#39;s Blog">
 <meta property="og:description" content="利用.gitignore过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。问题  在.gitignore中添加FileSample文件，以过滤该文件，但是通过git status查看仍显示FileSample文件的更改状态。原因：.gitignore文件只对还没有加入版本管理的文件起作用，若之前已经这些文件纳入了版本库，就不起作用了解决办法： 需要在git库中删除该文件">
 <meta property="og:updated_time" content="2017-06-29T08:21:24.000Z">
 <meta name="twitter:card" content="summary">
@@ -111,10 +87,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -137,14 +115,8 @@
 
 
 
-  <title>关于gitignore文件过滤无效-不能过滤某些文件问题 | chalypeng's Blog</title>
+  <title>关于gitignore文件过滤无效-不能过滤某些文件问题 | Charlie's Blog</title>
   
-
-
-
-
-
-
 
 
 
@@ -162,7 +134,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -173,12 +145,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">chalypeng's Blog</span>
+        <span class="site-title">Charlie's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">More better, more simple...</h1>
+        <p class="site-subtitle">Less is more!</p>
       
   </div>
 
@@ -255,17 +227,21 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://toor.xyz/2015/02/05/about-gitignore-problem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chalypeng">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/css/images/avatar.png">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chalypeng's Blog">
+      <meta itemprop="name" content="Charlie's Blog">
     </span>
 
     
@@ -273,7 +249,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">关于gitignore文件过滤无效-不能过滤某些文件问题</h2>
+          <h1 class="post-title" itemprop="name headline">关于gitignore文件过滤无效-不能过滤某些文件问题</h1>
         
 
         <div class="post-meta">
@@ -336,6 +312,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -351,27 +330,15 @@
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -407,6 +374,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -440,6 +411,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -457,19 +429,22 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/css/images/avatar.png"
-               alt="chalypeng" />
-          <p class="site-author-name" itemprop="name">chalypeng</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-           
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.png"
+              alt="chalypeng" />
+          
+            <p class="site-author-name" itemprop="name">chalypeng</p>
+            <p class="site-description motion-element" itemprop="description"></p>
         </div>
+
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
+            
               <a href="/archives/">
+            
                 <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -555,11 +530,19 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chalypeng</span>
+
+  
 </div>
 
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -625,25 +608,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -670,10 +660,6 @@
   
 
 
-
-
-
-  
 
 
 

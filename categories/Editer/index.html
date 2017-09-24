@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
 
 
@@ -36,36 +37,11 @@
 
 
 
+
   
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Noto+Sans|Lato|Roboto:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -74,7 +50,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -86,7 +62,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -94,11 +70,11 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="chalypeng&#39;s Blog">
+<meta property="og:title" content="Charlie&#39;s Blog">
 <meta property="og:url" content="https://toor.xyz/categories/Editer/index.html">
-<meta property="og:site_name" content="chalypeng&#39;s Blog">
+<meta property="og:site_name" content="Charlie&#39;s Blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="chalypeng&#39;s Blog">
+<meta name="twitter:title" content="Charlie&#39;s Blog">
 
 
 
@@ -106,10 +82,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -132,14 +110,8 @@
 
 
 
-  <title>分类: Editer | chalypeng's Blog</title>
+  <title>分类: Editer | Charlie's Blog</title>
   
-
-
-
-
-
-
 
 
 
@@ -157,7 +129,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-right ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -168,12 +140,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">chalypeng's Blog</span>
+        <span class="site-title">Charlie's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">More better, more simple...</h1>
+        <p class="site-subtitle">Less is more!</p>
       
   </div>
 
@@ -241,19 +213,24 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2>Editer<small>分类</small>
-      </h2>
-    </div>
+  
+  
+  
+  <div class="post-block category">
 
-    
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>Editer<small>分类</small>
+        </h1>
+      </div>
+
       
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
+      <h2 class="post-title">
         
             <a class="post-title-link" href="/2015/01/23/SublimeText-Shortcuts-Cheatsheet/" itemprop="url">
               
@@ -261,7 +238,7 @@
               
             </a>
         
-      </h3>
+      </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -275,8 +252,13 @@
   </article>
 
 
-    
-  </section>
+      
+    </div>
+
+  </div>
+  
+  
+  
 
   
 
@@ -301,6 +283,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -309,19 +292,22 @@
 
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/css/images/avatar.png"
-               alt="chalypeng" />
-          <p class="site-author-name" itemprop="name">chalypeng</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-           
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.png"
+              alt="chalypeng" />
+          
+            <p class="site-author-name" itemprop="name">chalypeng</p>
+            <p class="site-description motion-element" itemprop="description"></p>
         </div>
+
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
+            
               <a href="/archives/">
+            
                 <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -391,11 +377,19 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chalypeng</span>
+
+  
 </div>
 
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -461,25 +455,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
-
-  
-  
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-  
-
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -506,10 +507,6 @@
   
 
 
-
-
-
-  
 
 
 
