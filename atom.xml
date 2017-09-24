@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Charlie&#39;s Blog</title>
+  <icon>https://www.gravatar.com/avatar/89d2bad56dd7684e0f4c1d52b4489de3</icon>
+  <subtitle>Less is more!</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://toor.xyz/"/>
+  <updated>2017-09-24T09:28:54.175Z</updated>
+  <id>https://toor.xyz/</id>
+  
+  <author>
+    <name>chalypeng</name>
+    <email>chalypeng#gmail.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于 gitignore 文件过滤无效-不能过滤某些文件问题</title>
+    <link href="https://toor.xyz/2015/02/05/about-gitignore-problem/"/>
+    <id>https://toor.xyz/2015/02/05/about-gitignore-problem/</id>
+    <published>2015-02-05T02:52:16.000Z</published>
+    <updated>2017-09-24T09:28:54.175Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;利用 .gitignore 过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;问题:&lt;/strong&gt;&lt;br&gt;在 .gitignore 中添加 FileSample 文件，以过滤该文件，但是通过 git status 查看仍显示 FileSample 文件的更改状态。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Git" scheme="https://toor.xyz/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="https://toor.xyz/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python排序高级</title>
+    <link href="https://toor.xyz/2015/01/30/python-how-to-sorting/"/>
+    <id>https://toor.xyz/2015/01/30/python-how-to-sorting/</id>
+    <published>2015-01-30T02:06:37.000Z</published>
+    <updated>2017-06-29T08:02:27.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Python list内置sort()方法用来排序，也可以用python内置的全局sorted()方法来对可迭代的序列排序生成新的序列。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1）排序基础&lt;br&gt;简单的升序排序是非常容易的。只需要调用sorted()方法。它返回一个新的list，新的list的元素基于小于运算符(&lt;strong&gt;lt&lt;/strong&gt;)来排序。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://toor.xyz/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://toor.xyz/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python中xrange和range区别</title>
+    <link href="https://toor.xyz/2015/01/29/diff-xrange-range/"/>
+    <id>https://toor.xyz/2015/01/29/diff-xrange-range/</id>
+    <published>2015-01-29T06:41:43.000Z</published>
+    <updated>2017-06-29T08:01:48.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;xrange和range区别:&lt;/strong&gt;&lt;br&gt;这两个基本上都是在循环的时候用。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;):&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; i&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; xrange(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;):&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; i&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这两个输出的结果都是一样的，实际上有很多不同，&lt;code&gt;range&lt;/code&gt;会直接生成一个&lt;code&gt;list&lt;/code&gt;对象：&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://toor.xyz/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://toor.xyz/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ORA-00904-标识符无效解决办法</title>
+    <link href="https://toor.xyz/2015/01/28/ORA-00904-%E6%A0%87%E8%AF%86%E7%AC%A6%E6%97%A0%E6%95%88%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>https://toor.xyz/2015/01/28/ORA-00904-标识符无效解决办法/</id>
+    <published>2015-01-28T01:00:32.000Z</published>
+    <updated>2017-06-29T08:00:47.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;出现此错误首先检查输入的字段名与数据库的表中的字段名是否一样。&lt;/strong&gt;&lt;br&gt;如果一样，就要检查下表的字段名的大小写了，如果用navicat等图形化管理工具建表时，字段名写成了小写，那么今后查询此表时就同样要用小写，但是在命令行内oracle数据库后自动将小写转换为大写再接收，所以&lt;strong&gt;需要给小写的字段名加上引号才能查询成功。&lt;/strong&gt;&lt;br&gt;C#用调用时也一样，由于oracle接收字符串都会将小写转化为大写，所以也很可能出现标识符无效的错误。&lt;br&gt;所以在建表时字段名最好都用大写，尤其当用图形化工具建表时更要注意这一点。&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="Database" scheme="https://toor.xyz/categories/Database/"/>
+    
+    
+      <category term="Oracle" scheme="https://toor.xyz/tags/Oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SublimeText快捷键列表</title>
+    <link href="https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/"/>
+    <id>https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/</id>
+    <published>2015-01-23T03:18:47.000Z</published>
+    <updated>2017-06-29T08:02:49.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##快捷键列表（Shortcuts Cheatsheet）&lt;/p&gt;
+&lt;h3 id=&quot;通用（General）&quot;&gt;&lt;a href=&quot;#通用（General）&quot; class=&quot;headerlink&quot; title=&quot;通用（General）&quot;&gt;&lt;/a&gt;通用（General）&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;↑↓←→&lt;/code&gt;：上下左右移动光标，注意不是不是KJHL！&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Alt&lt;/code&gt;：调出菜单&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;：调出命令板（Command Palette）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl +&lt;/code&gt;：调出控制台&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Editer" scheme="https://toor.xyz/categories/Editer/"/>
+    
+    
+      <category term="SublimeText" scheme="https://toor.xyz/tags/SublimeText/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python字符串格式化</title>
+    <link href="https://toor.xyz/2015/01/17/python-format-string/"/>
+    <id>https://toor.xyz/2015/01/17/python-format-string/</id>
+    <published>2015-01-17T06:18:40.000Z</published>
+    <updated>2017-06-29T08:01:04.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Python格式操作符&quot;&gt;&lt;a href=&quot;#Python格式操作符&quot; class=&quot;headerlink&quot; title=&quot;Python格式操作符&quot;&gt;&lt;/a&gt;Python格式操作符&lt;/h2&gt;&lt;p&gt;格式操作符为真实值预留位置，并控制显示的格式。格式符可以包含有一个&lt;code&gt;类型码&lt;/code&gt;，用以控制显示类型，常见类型如下:&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://toor.xyz/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://toor.xyz/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo主题修改-为博客实现更多功能</title>
+    <link href="https://toor.xyz/2015/01/14/Hexo%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9-%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%AE%9E%E7%8E%B0%E6%9B%B4%E5%A4%9A%E5%8A%9F%E8%83%BD/"/>
+    <id>https://toor.xyz/2015/01/14/Hexo主题修改-为博客实现更多功能/</id>
+    <published>2015-01-14T08:59:05.000Z</published>
+    <updated>2015-02-04T02:00:03.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要介绍快速导航、返回顶部、Swiftype 搜索等功能的实现，代码实现细节直戳 &lt;a href=&quot;https://github.com/DaiXiang/hexo-theme-BsLight/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Blog" scheme="https://toor.xyz/categories/Blog/"/>
+    
+    
+      <category term="Hexo" scheme="https://toor.xyz/tags/Hexo/"/>
+    
+  </entry>
+  
+</feed>
