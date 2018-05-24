@@ -1,60 +1,245 @@
-<html>
+<!DOCTYPE html>
+<html lang=zh>
 <head>
-	
-	<title>关于 gitignore 文件过滤无效-不能过滤某些文件问题</title>
-	<meta name="keywords" content="More better, more simple!" />
-
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="利用 .gitignore 过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。  问题:在 .gitignore 中添加 FileSample 文件，以过滤该文件，但是通过 git status 查看仍显示 FileSample 文件的更改状态。">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于 gitignore 文件过滤无效-不能过滤某些文件问题">
+<meta property="og:url" content="https://toor.xyz/2015/02/05/about-gitignore-problem/index.html">
+<meta property="og:site_name" content="Charlie&#39;s Blog">
+<meta property="og:description" content="利用 .gitignore 过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。  问题:在 .gitignore 中添加 FileSample 文件，以过滤该文件，但是通过 git status 查看仍显示 FileSample 文件的更改状态。">
+<meta property="og:updated_time" content="2017-09-24T09:28:54.176Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于 gitignore 文件过滤无效-不能过滤某些文件问题">
+<meta name="twitter:description" content="利用 .gitignore 过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。  问题:在 .gitignore 中添加 FileSample 文件，以过滤该文件，但是通过 git status 查看仍显示 FileSample 文件的更改状态。">
     
-    <!--<link rel="stylesheet" href="/css/main.css">-->
-	<link href="/css/main.css?v=2" rel="stylesheet" type="text/css" />
-    <!--<link rel="stylesheet" href="/css/style.css">-->
     
-
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
-
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2"/>
+    <!-- title -->
+    <title>关于 gitignore 文件过滤无效-不能过滤某些文件问题</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
     
-
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
 </head>
 
-<body>
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2015/01/30/python-how-to-sorting/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://toor.xyz/2015/02/05/about-gitignore-problem/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&text=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&title=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&is_video=false&description=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于 gitignore 文件过滤无效-不能过滤某些文件问题&body=Check out this article: https://toor.xyz/2015/02/05/about-gitignore-problem/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&title=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&title=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&title=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&title=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&name=关于 gitignore 文件过滤无效-不能过滤某些文件问题&description=&lt;p&gt;&lt;strong&gt;利用 .gitignore 过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;问题:&lt;/strong&gt;&lt;br&gt;在 .gitignore 中添加 FileSample 文件，以过滤该文件，但是通过 git status 查看仍显示 FileSample 文件的更改状态。&lt;br&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
 
-<h2 class="title">关于 gitignore 文件过滤无效-不能过滤某些文件问题</h2>
-<p><strong>利用 .gitignore 过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。</strong></p>
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        关于 gitignore 文件过滤无效-不能过滤某些文件问题
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Charlie's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2015-02-05T02:52:16.000Z" itemprop="datePublished">2015-02-05</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Git/">Git</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><strong>利用 .gitignore 过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。</strong></p>
 <blockquote>
 <p><strong>问题:</strong><br>在 .gitignore 中添加 FileSample 文件，以过滤该文件，但是通过 git status 查看仍显示 FileSample 文件的更改状态。<br><a id="more"></a><br><strong>原因：</strong><br>.gitignore 文件只对还没有加入版本管理的文件起作用，若之前已经这些文件纳入了版本库，就不起作用了<br><strong>解决办法：</strong><br>需要在 git 库中删除该文件，并更新。</p>
 </blockquote>
 <p>再次 git status 查看状态，FileSample 文件不再显示更改状态，也就是不再追踪变化，gitignore 起作用了。</p>
 
+  </div>
+</article>
 
-<!--<a href="https://toor.xyz/2015/02/05/about-gitignore-problem/#disqus_thread" class="article-comment-link">Comments</a>-->
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'undefined'; // required: replace example with your forum shortname
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-<div style="display:none">
-<script src="http://s4.cnzz.com/stat.php?id=undefined&web_id=undefined" language="JavaScript"></script>script>
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://toor.xyz/2015/02/05/about-gitignore-problem/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&text=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&title=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&is_video=false&description=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于 gitignore 文件过滤无效-不能过滤某些文件问题&body=Check out this article: https://toor.xyz/2015/02/05/about-gitignore-problem/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&title=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&title=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&title=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&title=关于 gitignore 文件过滤无效-不能过滤某些文件问题"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://toor.xyz/2015/02/05/about-gitignore-problem/&name=关于 gitignore 文件过滤无效-不能过滤某些文件问题&description=&lt;p&gt;&lt;strong&gt;利用 .gitignore 过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;问题:&lt;/strong&gt;&lt;br&gt;在 .gitignore 中添加 FileSample 文件，以过滤该文件，但是通过 git status 查看仍显示 FileSample 文件的更改状态。&lt;br&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
 </div>
 
-
-
-
-
-
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 chalypeng
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
 
 </body>
 </html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+

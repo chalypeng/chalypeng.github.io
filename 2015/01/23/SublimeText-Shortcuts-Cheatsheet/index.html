@@ -1,30 +1,152 @@
-<html>
+<!DOCTYPE html>
+<html lang=zh>
 <head>
-	
-	<title>SublimeText快捷键列表</title>
-	<meta name="keywords" content="More better, more simple!" />
-
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="##快捷键列表（Shortcuts Cheatsheet） 通用（General） ↑↓←→：上下左右移动光标，注意不是不是KJHL！ Alt：调出菜单 Ctrl + Shift + P：调出命令板（Command Palette） Ctrl +：调出控制台">
+<meta name="keywords" content="SublimeText">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SublimeText快捷键列表">
+<meta property="og:url" content="https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/index.html">
+<meta property="og:site_name" content="Charlie&#39;s Blog">
+<meta property="og:description" content="##快捷键列表（Shortcuts Cheatsheet） 通用（General） ↑↓←→：上下左右移动光标，注意不是不是KJHL！ Alt：调出菜单 Ctrl + Shift + P：调出命令板（Command Palette） Ctrl +：调出控制台">
+<meta property="og:updated_time" content="2017-06-29T08:02:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SublimeText快捷键列表">
+<meta name="twitter:description" content="##快捷键列表（Shortcuts Cheatsheet） 通用（General） ↑↓←→：上下左右移动光标，注意不是不是KJHL！ Alt：调出菜单 Ctrl + Shift + P：调出命令板（Command Palette） Ctrl +：调出控制台">
     
-    <!--<link rel="stylesheet" href="/css/main.css">-->
-	<link href="/css/main.css?v=2" rel="stylesheet" type="text/css" />
-    <!--<link rel="stylesheet" href="/css/style.css">-->
     
-
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
-
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
     
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2"/>
+    <!-- title -->
+    <title>SublimeText快捷键列表</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
     
-
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
 </head>
 
-<body>
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2015/01/28/ORA-00904-标识符无效解决办法/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2015/01/17/python-format-string/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&text=SublimeText快捷键列表"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&title=SublimeText快捷键列表"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&is_video=false&description=SublimeText快捷键列表"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=SublimeText快捷键列表&body=Check out this article: https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&title=SublimeText快捷键列表"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&title=SublimeText快捷键列表"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&title=SublimeText快捷键列表"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&title=SublimeText快捷键列表"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&name=SublimeText快捷键列表&description=&lt;p&gt;##快捷键列表（Shortcuts Cheatsheet）&lt;/p&gt;
+&lt;h3 id=&quot;通用（General）&quot;&gt;&lt;a href=&quot;#通用（General）&quot; class=&quot;headerlink&quot; title=&quot;通用（General）&quot;&gt;&lt;/a&gt;通用（General）&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;↑↓←→&lt;/code&gt;：上下左右移动光标，注意不是不是KJHL！&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Alt&lt;/code&gt;：调出菜单&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;：调出命令板（Command Palette）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl +&lt;/code&gt;：调出控制台&lt;/li&gt;
+&lt;/ul&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
 
-<h2 class="title">SublimeText快捷键列表</h2>
-<p>##快捷键列表（Shortcuts Cheatsheet）</p>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#通用（General）"><span class="toc-number">1.</span> <span class="toc-text">通用（General）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑（Editing）"><span class="toc-number">2.</span> <span class="toc-text">编辑（Editing）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择（Selecting）"><span class="toc-number">3.</span> <span class="toc-text">选择（Selecting）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找-amp-替换（Finding-amp-Replacing）"><span class="toc-number">4.</span> <span class="toc-text">查找&替换（Finding&Replacing）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跳转（Jumping）"><span class="toc-number">5.</span> <span class="toc-text">跳转（Jumping）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#窗口（Window）"><span class="toc-number">6.</span> <span class="toc-text">窗口（Window）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#屏幕（Screen）"><span class="toc-number">7.</span> <span class="toc-text">屏幕（Screen）</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        SublimeText快捷键列表
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Charlie's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2015-01-23T03:18:47.000Z" itemprop="datePublished">2015-01-23</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/SublimeText/">SublimeText</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>##快捷键列表（Shortcuts Cheatsheet）</p>
 <h3 id="通用（General）"><a href="#通用（General）" class="headerlink" title="通用（General）"></a>通用（General）</h3><ul>
 <li><code>↑↓←→</code>：上下左右移动光标，注意不是不是KJHL！</li>
 <li><code>Alt</code>：调出菜单</li>
@@ -82,31 +204,104 @@
 <li>分屏之后，使用<code>Ctrl + 数字键</code>跳转到指定屏，使用<code>Ctrl + Shift + 数字键</code>将当前屏移动到指定屏</li>
 </ul>
 
+  </div>
+</article>
 
-<!--<a href="https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/#disqus_thread" class="article-comment-link">Comments</a>-->
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'undefined'; // required: replace example with your forum shortname
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-<div style="display:none">
-<script src="http://s4.cnzz.com/stat.php?id=undefined&web_id=undefined" language="JavaScript"></script>script>
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#通用（General）"><span class="toc-number">1.</span> <span class="toc-text">通用（General）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑（Editing）"><span class="toc-number">2.</span> <span class="toc-text">编辑（Editing）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择（Selecting）"><span class="toc-number">3.</span> <span class="toc-text">选择（Selecting）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找-amp-替换（Finding-amp-Replacing）"><span class="toc-number">4.</span> <span class="toc-text">查找&替换（Finding&Replacing）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跳转（Jumping）"><span class="toc-number">5.</span> <span class="toc-text">跳转（Jumping）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#窗口（Window）"><span class="toc-number">6.</span> <span class="toc-text">窗口（Window）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#屏幕（Screen）"><span class="toc-number">7.</span> <span class="toc-text">屏幕（Screen）</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&text=SublimeText快捷键列表"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&title=SublimeText快捷键列表"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&is_video=false&description=SublimeText快捷键列表"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=SublimeText快捷键列表&body=Check out this article: https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&title=SublimeText快捷键列表"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&title=SublimeText快捷键列表"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&title=SublimeText快捷键列表"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&title=SublimeText快捷键列表"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/&name=SublimeText快捷键列表&description=&lt;p&gt;##快捷键列表（Shortcuts Cheatsheet）&lt;/p&gt;
+&lt;h3 id=&quot;通用（General）&quot;&gt;&lt;a href=&quot;#通用（General）&quot; class=&quot;headerlink&quot; title=&quot;通用（General）&quot;&gt;&lt;/a&gt;通用（General）&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;↑↓←→&lt;/code&gt;：上下左右移动光标，注意不是不是KJHL！&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Alt&lt;/code&gt;：调出菜单&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;：调出命令板（Command Palette）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl +&lt;/code&gt;：调出控制台&lt;/li&gt;
+&lt;/ul&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
 </div>
 
-
-
-
-
-
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 chalypeng
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
 
 </body>
 </html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
