@@ -126,7 +126,6 @@
 <meta property="og:url" content="https://toor.xyz/2015/01/28/ORA-00904-标识符无效解决办法/index.html">
 <meta property="og:site_name" content="Charlie&#39;s Blog">
 <meta property="og:description" content="出现此错误首先检查输入的字段名与数据库的表中的字段名是否一样。如果一样，就要检查下表的字段名的大小写了，如果用navicat等图形化管理工具建表时，字段名写成了小写，那么今后查询此表时就同样要用小写，但是在命令行内oracle数据库后自动将小写转换为大写再接收，所以需要给小写的字段名加上引号才能查询成功。C#用调用时也一样，由于oracle接收字符串都会将小写转化为大写，所以也很可能出现标识符无效">
-<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-06-29T08:00:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ORA-00904-标识符无效解决办法">
@@ -484,10 +483,8 @@
 
       
         <p><strong>出现此错误首先检查输入的字段名与数据库的表中的字段名是否一样。</strong><br>如果一样，就要检查下表的字段名的大小写了，如果用navicat等图形化管理工具建表时，字段名写成了小写，那么今后查询此表时就同样要用小写，但是在命令行内oracle数据库后自动将小写转换为大写再接收，所以<strong>需要给小写的字段名加上引号才能查询成功。</strong><br>C#用调用时也一样，由于oracle接收字符串都会将小写转化为大写，所以也很可能出现标识符无效的错误。<br>所以在建表时字段名最好都用大写，尤其当用图形化工具建表时更要注意这一点。</p>
-<a id="more"></a>
-<hr>
-<p>现在举一个遇到的例子：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> SSQX_SURGERY_INFO (<span class="keyword">ID</span>, PackId, REMARK, DEPARTID, AMOUNT, <span class="keyword">PRIORITY</span>) <span class="keyword">values</span> (<span class="number">3</span>, <span class="number">11</span>, <span class="string">'1rt'</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">'fdg'</span>)</span><br></pre></td></tr></table></figure></p>
-<p> 一直报<code>PackId</code>是无效标识符改成<code>&quot;PackId&quot;</code>即可<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> SSQX_SURGERY_INFO (<span class="keyword">ID</span>, ”PackId“, REMARK, DEPARTID, AMOUNT, <span class="keyword">PRIORITY</span>) <span class="keyword">values</span> (<span class="number">3</span>, <span class="number">11</span>, <span class="string">'1rt'</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">'fdg'</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>现在举一个遇到的例子：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> SSQX_SURGERY_INFO (<span class="keyword">ID</span>, PackId, REMARK, DEPARTID, AMOUNT, <span class="keyword">PRIORITY</span>) <span class="keyword">values</span> (<span class="number">3</span>, <span class="number">11</span>, <span class="string">'1rt'</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">'fdg'</span>)</div></pre></td></tr></table></figure></p>
+<p> 一直报<code>PackId</code>是无效标识符改成<code>&quot;PackId&quot;</code>即可<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> SSQX_SURGERY_INFO (<span class="keyword">ID</span>, ”PackId“, REMARK, DEPARTID, AMOUNT, <span class="keyword">PRIORITY</span>) <span class="keyword">values</span> (<span class="number">3</span>, <span class="number">11</span>, <span class="string">'1rt'</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">'fdg'</span>)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -598,8 +595,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -730,6 +736,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
