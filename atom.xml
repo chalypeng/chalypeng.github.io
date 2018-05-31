@@ -129,12 +129,11 @@
     <link href="https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/"/>
     <id>https://toor.xyz/2015/01/23/SublimeText-Shortcuts-Cheatsheet/</id>
     <published>2015-01-23T03:18:47.000Z</published>
-    <updated>2017-06-29T08:02:49.000Z</updated>
+    <updated>2018-05-31T08:57:07.665Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;##快捷键列表（Shortcuts Cheatsheet）&lt;/p&gt;
-&lt;h3 id=&quot;通用（General）&quot;&gt;&lt;a href=&quot;#通用（General）&quot; class=&quot;headerlink&quot; title=&quot;通用（General）&quot;&gt;&lt;/a&gt;通用（General）&lt;/h3&gt;&lt;ul&gt;
+      &lt;h2 id=&quot;快捷键列表（Shortcuts-Cheatsheet）&quot;&gt;&lt;a href=&quot;#快捷键列表（Shortcuts-Cheatsheet）&quot; class=&quot;headerlink&quot; title=&quot;快捷键列表（Shortcuts Cheatsheet）&quot;&gt;&lt;/a&gt;快捷键列表（Shortcuts Cheatsheet）&lt;/h2&gt;&lt;h3 id=&quot;通用（General）&quot;&gt;&lt;a href=&quot;#通用（General）&quot; class=&quot;headerlink&quot; title=&quot;通用（General）&quot;&gt;&lt;/a&gt;通用（General）&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;↑↓←→&lt;/code&gt;：上下左右移动光标，注意不是不是KJHL！&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Alt&lt;/code&gt;：调出菜单&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;：调出命令板（Command Palette）&lt;/li&gt;
