@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[helloworld]]></title>
     <url>%2F2018%2F05%2F31%2Fhelloworld%2F</url>
-    <content type="text"><![CDATA[###helloworldhelloworld ##helloworld]]></content>
+    <content type="text"><![CDATA[helloworldhelloworld helloworld]]></content>
   </entry>
   <entry>
     <title><![CDATA[关于 gitignore 文件过滤无效-不能过滤某些文件问题]]></title>
