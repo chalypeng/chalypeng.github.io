@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[helloworld]]></title>
+    <url>%2F2018%2F05%2F31%2Fhelloworld%2F</url>
+    <content type="text"><![CDATA[###helloworldhelloworld ##helloworld]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[关于 gitignore 文件过滤无效-不能过滤某些文件问题]]></title>
     <url>%2F2015%2F02%2F05%2Fabout-gitignore-problem%2F</url>
     <content type="text"><![CDATA[利用 .gitignore 过滤文件，如编译过程中的中间文件等等，这些文件不需要被追踪管理，需要被忽略掉。 问题:在 .gitignore 中添加 FileSample 文件，以过滤该文件，但是通过 git status 查看仍显示 FileSample 文件的更改状态。原因：.gitignore 文件只对还没有加入版本管理的文件起作用，若之前已经这些文件纳入了版本库，就不起作用了解决办法：需要在 git 库中删除该文件，并更新。 再次 git status 查看状态，FileSample 文件不再显示更改状态，也就是不再追踪变化，gitignore 起作用了。]]></content>
