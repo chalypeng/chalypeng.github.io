@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chalypeng.com/"/>
-  <updated>2017-09-24T09:28:54.176Z</updated>
+  <updated>2018-06-25T02:52:36.572Z</updated>
   <id>https://chalypeng.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自我管理[Managing Oneself]</title>
+    <link href="https://chalypeng.com/2018/06/25/Managin-Oneself/"/>
+    <id>https://chalypeng.com/2018/06/25/Managin-Oneself/</id>
+    <published>2018-06-25T01:48:42.000Z</published>
+    <updated>2018-06-25T02:52:36.572Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;《管理自己》，洋文叫做《 Managing Oneself 》。此文刊登在十年前（2008）的《哈佛商业评论》（HBR）上，号称是 HBR“有屎以来”（创刊后）重印次数最多的文章。 这篇《 Managing Oneself 》实际上是摘自“&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="成长" scheme="https://chalypeng.com/categories/%E6%88%90%E9%95%BF/"/>
+    
+    
+      <category term="成长" scheme="https://chalypeng.com/tags/%E6%88%90%E9%95%BF/"/>
+    
+  </entry>
   
   <entry>
     <title>关于 gitignore 文件过滤无效-不能过滤某些文件问题</title>
